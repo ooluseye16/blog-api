@@ -5,7 +5,7 @@ const userController = require('./controllers/userController');
 const postController = require('./controllers/postController');
 const authMiddleware = require('./middleware/authMiddleware');
 const roleMiddleware = require('./middleware/roleMiddleware');
-require('dotenv').config();
+//require('dotenv').config();
 
 const app = express();
 const PORT = 3000;
