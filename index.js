@@ -14,10 +14,11 @@ const server = http.createServer(app);
 
 mongoose.connect(process.env.MONGODB_URI, {
     dbName: 'blog',
+    serverSelectionTimeoutMS: 30000,
 })
     .then(() => console.log('MongoDB Connected'))
     .catch(err => console.log(err));
- 
+
 app.get('/', (req, res) => {
     res.json({
         message: 'Welcome to our blog api'
