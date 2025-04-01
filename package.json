@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --watchAll --verbose",
-    "start": "nodemon index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
