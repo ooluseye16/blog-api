@@ -18,6 +18,12 @@ const registerUser = async (req, res) => {
             const messages = Object.values(error.errors).map(val => val.message);
             return res.status(400).json({ message: messages });
         } else {
+            if (error.code === 11000) {
+                const duplicateField = Object.keys(error.keyPattern)[0]; // Gets the field that caused the conflict
+                return res.status(400).json({
+                    error: `${duplicateField.charAt(0).toUpperCase() + duplicateField.slice(1)} already exists. Please choose another.`,
+                });
+            }
             res.status(500).json({
                 status: 'error',
                 message: error.message
