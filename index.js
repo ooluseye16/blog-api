@@ -322,6 +322,7 @@ app.get('/posts', postController.getPosts);
  */
 app.post('/posts', authMiddleware.protect, postController.createPost);
 app.get('/posts/:id', postController.getPostById);
+app.get('/user/posts', authMiddleware.protect, postController.getUserPosts);
 app.put('/posts/:id', postController.updatePost);
 app.delete('/posts/:id', postController.deletePost);
 

@@ -49,6 +49,20 @@ const getPostById = async (req, res) => {
     }
 }
 
+//get user's posts
+const getUserPosts = async (req, res) => {
+    try {
+        const posts = await Post.find({ author: req.user.id });
+        res.status(200).json({
+            status: 'success',
+            data: posts,
+            message: 'Retrieved all posts',
+        });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
+
 // update Post
 const updatePost = async (req, res) => {
     try {
@@ -87,6 +101,7 @@ module.exports = {
     createPost,
     getPosts,
     getPostById,
+    getUserPosts,
     updatePost,
     deletePost
 }
