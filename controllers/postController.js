@@ -40,7 +40,12 @@ const getPostById = async (req, res) => {
     try {
         const post = await Post.findById(req.params.id);
         if (post) {
-            res.status(200).json(post);
+            res.status(200).json({
+
+                status: 'success',
+                data: post,
+                message: 'Post retrieved successfully',
+            });
         } else {
             res.status(404).json({ message: 'Post not found' });
         }
