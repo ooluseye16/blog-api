@@ -35,7 +35,7 @@ An app built with the same API is available [here](https://blog-app-tirioh.verce
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/blog-api.git
+   git clone https://github.com/ooluseye16/blog-api.git
    ```
 
 2. Navigate to the project directory:
@@ -82,7 +82,3 @@ An app built with the same API is available [here](https://blog-app-tirioh.verce
 ## API Documentation
 
 The API documentation is available at `/api-docs` when the server is running.
-
-## License
-
-This project is licensed under the ISC License.
