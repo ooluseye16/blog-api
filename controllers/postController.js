@@ -2,10 +2,14 @@ const Post = require('../models/post');
 
 const createPost = async (req, res) => {
     try {
+
+        const imageUrl = req.file ? req.file.path : null;
+
         const post = await Post.create({
             title: req.body.title,
             content: req.body.content,
             author: req.user.id,
+            image: imageUrl,
         });
         res.status(201).json(post);
     } catch (error) {

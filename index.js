@@ -9,6 +9,7 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerJsDoc = require('swagger-jsdoc');
 require('dotenv').config();
 const cors = require('cors');
+const { upload } = require('./config/cloudinaryConfig');
 
 
 const app = express();
@@ -320,7 +321,7 @@ app.get('/posts', postController.getPosts);
  *                   example: "Post created successfully"
  * 
  */
-app.post('/posts', authMiddleware.protect, postController.createPost);
+app.post('/posts', authMiddleware.protect, upload.single('image'), postController.createPost);
 app.get('/posts/:id', postController.getPostById);
 app.get('/user/posts', authMiddleware.protect, postController.getUserPosts);
 app.put('/posts/:id', postController.updatePost);
